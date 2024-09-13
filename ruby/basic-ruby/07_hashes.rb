@@ -51,14 +51,12 @@ p shoes["summer"]
     # Trying to access a key that doesn't exist in a hash will return nil
 
 shoes["hiking"] #=> nil
-p shoes["hiking"] #=> nil
 
     # Trying to access a key that doesn't exist can be problematic and causes errrors in you program
     # Luckily Ruby has a fetch method that will raise an error when accessing a key that is not in your hash
     # Solution: fetch method
 
 shoes.fetch("hiking") #=> KeyError: key not found: "hiking"
-p shoes.fetch("hiking") #=> KeyError: key not found: "hiking"
 
     # Alternatively this method can return a defaul value instead of rasing an error if the given key is not found
 
@@ -133,3 +131,13 @@ japanese_cars = {
 
 american_cars[:ford] #=> "Mustang"
 japanese_cars[:honda] #=> "Accord"
+
+## Iterating Over Hashes
+
+    # Iterating over hashes is similar to iterating over arrays with some small differences
+
+person = {name: "Bob", height: "6 ft", weight: "160 lbs", hair: "brown"}
+
+person.each do |key, value|
+    puts "Bob's #{key} is #{value}"
+end
