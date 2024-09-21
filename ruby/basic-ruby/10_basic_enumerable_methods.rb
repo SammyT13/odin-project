@@ -265,3 +265,26 @@ puts friends
 
 puts invited_friends(friends)
 
+
+(1..6).to_a.each { |num| print "#{num}! "}
+
+## Enumberabl Iterators Cheat Sheet
+
+  #each returns the original object it was called on because it’s really used for its side effects and not what it returns
+
+  #each_with_index passes not just the current item but whatever position in the array it was located in.
+
+  #select returns a new object (e.g. array) filled with only those original items where the block you gave it returned true
+
+  #map returns a new array filled with whatever gets returned by the block each time it runs.
+
+## Some Other Handy Methods
+
+  #any? returns true/false (see the question mark?) and answers the question, "do ANY of the elements in this object pass the test in my block?". If your block returns true on any time it runs, any? will return true.
+
+  #all? returns true/false and answers the question, "do ALL the elements of this object pass the test in my block?". Every time the block runs it must return true for this method to return true.
+  
+  #none? returns true only if NONE of the elements in the object return true when the block is run.
+
+  #find returns the first item in your object for which the block returns true.
+
