@@ -300,7 +300,7 @@ data.each do |result|
   puts result["properties"]["name"]
 
   # method 2
-  puts result.dig("properties", "name")
+  puts result.dig("properties")
 end
 
   # method 1 uses the hash[key] syntax, and because the first hash value is another hash, it can be chained to get the result you're after
@@ -310,8 +310,32 @@ end
     # it'll dig down into the nested hashes and pull out the value, but if any step is missing, it will return 'nil' which can be a bit safer if you're handling data from an external source
 
   
+    def find_favorite(array_of_hash_objects)
+      # take an array_of_hash_objects and return the hash which has the key/value
+      # pair :is_my_favorite? => true. If no hash returns the value true to the key
+      # :is_my_favorite? it should return nil
+    
+      # TIP: there will only be a maximum of one hash in the array that will
+      # return true to the :is_my_favorite? key
+      array_of_hash_objects.each do |result|
+        if result.dig(:is_my_favorite?) == true
+          puts array_of_hash_objects[0]
+        else
+          p nil
+        end
+      end
+    end
 
 
+find_favorite( [
+  { name: 'Ruby', is_my_favorite?: true },
+  { name: 'JavaScript', is_my_favorite?: false },
+  { name: 'HTML', is_my_favorite?: false }
+])
 
-
+find_favorite( [
+  { name: 'Ruby', is_my_favorite?: false },
+  { name: 'JavaScript', is_my_favorite?: false },
+  { name: 'HTML', is_my_favorite?: false }
+])
 
